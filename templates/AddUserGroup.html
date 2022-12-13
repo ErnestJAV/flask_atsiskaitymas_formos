@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Add a group</legend>
+            <div class="form-group">
+                {{ form.email_address.label(class="form-control-label") }}
+                {% if form.email_address.errors %}
+                {{ form.email_address(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email_address.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.email_address(class="form-control form-control-lg") }}
+                {% endif %}
+
+            </div>
+
+             <div class="form-group">
+                {{ form.groups.label(class="form-control-label") }}
+                {% if form.groups.errors %}
+                {{ form.groups(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.groups.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.groups(class="form-control form-control-lg") }}
+                {% endif %}
+
+            </div>
+
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

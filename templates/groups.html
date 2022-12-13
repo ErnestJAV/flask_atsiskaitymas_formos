@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+<style>
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.flex-container > div {
+
+  width: calc(50% - 3em);
+  margin: 1em;
+  text-align: center;
+  line-height: 15px;
+  font-size: 15px;
+  border:1px solid;
+   border: 1px solid grey;
+   box-sizing: border-box;
+}
+</style>
+</head>
+
+<div class="flex-container">
+    {% for row in data %}
+  <div>
+    <h4>{{ row.name }}</h4>
+      <br>
+    {{ row.description }}
+    <br>
+<a href="{{ url_for('show_bills', id = row.id) }}">Perziureti grupės sąskaitas</a>
+  </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
